@@ -381,6 +381,7 @@ def get_train_loaders(config: dict) -> dict[str, DataLoader]:
 
     logger.info(f'Batch size for train/val loader: {batch_size}')
     # when training with volumetric data use batch_size of 1 due to GPU memory constraints
+    print(f"Traii datasets: {train_datasets}")
     return {
         'train': DataLoader(ConcatDataset(train_datasets), batch_size=batch_size, shuffle=True, pin_memory=True,
                             num_workers=num_workers, drop_last=True),

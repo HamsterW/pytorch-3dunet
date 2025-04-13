@@ -186,6 +186,7 @@ class AbstractHDF5Dataset(ConfigDataset):
 
     @classmethod
     def create_datasets(cls, dataset_config, phase):
+        print("creating dataset")
         phase_config = dataset_config[phase]
 
         # load data augmentation configuration
