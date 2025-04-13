@@ -29,6 +29,7 @@ def traverse_h5_paths(file_paths):
                 results.append(fp)
         else:
             results.append(file_path)
+    print(f"From traverse_h5_paths(): length of results {len(results)}")
     return results
 
 
@@ -220,6 +221,7 @@ class AbstractHDF5Dataset(ConfigDataset):
                     datasets.append(dataset)
                 except Exception as e:
                     logger.error(f'Failed to load dataset: {e}')
+            print(f"From create_datasets: len(datasets) is {len(datasets)}")
             return datasets
 
 

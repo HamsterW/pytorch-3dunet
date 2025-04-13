@@ -19,7 +19,7 @@ model:
   final_sigmoid: true
 # loss function to be used during training
 loss:
-  name: BCEDiceLoss
+  name: CrossEntropyLoss
   # a target value that is ignored and does not contribute to the input gradient
   ignore_index: null
   # skip the last channel in the target (i.e. when last channel contains data not relevant for the loss)
@@ -67,7 +67,7 @@ loaders:
   # how many subprocesses to use for data loading
   num_workers: 32
   # path to the raw data within the H5
-  raw_internal_path: raw
+  raw_internal_path: image
   # path to  the label data within the H5
   label_internal_path: label
   # apply random shifting and scaling of the patches; value of 20 mean that patches may shrink/stretch by 20px in each dimension
@@ -78,7 +78,7 @@ loaders:
   train:
     # path to the training datasets
     file_paths:
-      - ../dataset/segmentation_train
+      - ../../../dataset/segmentation_train_hdf5
 
     # SliceBuilder configuration, i.e. how to iterate over the input volume patch-by-patch
     slice_builder:
@@ -132,7 +132,7 @@ loaders:
   val:
     # path to the val datasets
     file_paths:
-      - ../dataset/segmentation_val
+      - ../../../dataset/segmentation_val_hdf5
 
     # SliceBuilder configuration, i.e. how to iterate over the input volume patch-by-patch
     slice_builder:
